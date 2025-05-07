@@ -1,4 +1,4 @@
-# ST0263 - Proyecto 1: Middleware de Mensajería Asíncrona (MOM)
+# ST0263 - BookStore Monolítica - Proyecto 2
 
 ## Información del curso
 - **Materia:** ST0263 - Tópicos Especiales en Telemática
