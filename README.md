@@ -90,9 +90,23 @@ cd bookstore-monolith
 # Ejecutar
 docker-compose up --build -d
 
+# Sitio Web desplegado
+
+👉 https://bookstoredemo.shop
+App Flask monolítica	✅ Corriendo
+Docker + Docker Compose	✅ OK
+MySQL en contenedor	✅ OK
+Proxy inverso NGINX	✅ OK
+Dominio público (.shop)	✅ OK
+HTTPS con Let's Encrypt	✅ Válido
+Renovación automática SSL	✅ OK
+
 ### 5. Otra información relevante
 
 Este despliegue forma parte del Proyecto 2 del curso ST0263. Incluye los tres objetivos descritos en la guía del proyecto.
+
+
+![image](https://github.com/user-attachments/assets/a83cdafd-3a51-46ac-b7f2-f2202567eae2)
 
 Referencias
 
