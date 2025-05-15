@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/8f06b72d-3107-4fa0-a016-57cb7c300f0d)# ST0263 - BookStore Monolítica - Proyecto 2
+# ST0263 - BookStore Monolítica - Proyecto 2
 
 ## Información del curso
 - **Materia:** ST0263 - Tópicos Especiales en Telemática
