@@ -143,7 +143,7 @@ Este despliegue forma parte del Proyecto 2 del curso ST0263. Incluye 2/3 objetiv
 - Certificado verificado con `openssl s_client`
 
 ![image](https://github.com/user-attachments/assets/4d8ff9b5-39c9-45c3-b249-cfd5c4d73f7b)
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/a891b80f-b943-46ec-8789-137ed807740d)
 
 
 Referencias:
