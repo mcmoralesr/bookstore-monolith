@@ -1,4 +1,4 @@
-# ST0263 - BookStore Monolítica - Proyecto 2
+![image](https://github.com/user-attachments/assets/8f06b72d-3107-4fa0-a016-57cb7c300f0d)# ST0263 - BookStore Monolítica - Proyecto 2
 
 ## Información del curso
 - **Materia:** ST0263 - Tópicos Especiales en Telemática
@@ -21,67 +21,48 @@ Desplegar la aplicación BookStore Monolítica en una Máquina Virtual (VM) en A
 
 Escalamiento en la nube de la aplicación monolítica usando un patrón de arquitectura de escalamiento en AWS. Se usarán múltiples VMs con autoescalamiento, balanceador de carga (ELB), almacenamiento de archivos compartidos (NFS) y una base de datos administrada o en alta disponibilidad.
 
-#### Objetivo 3 - 50%
-
-Reingeniería de la aplicación BookStore para separarla en 3 microservicios:
-
-Autenticación (registro, login, logout)
-
-Catálogo de libros
-
-Compra, pago y entrega
-
-Despliegue sobre clúster Kubernetes con reglas de escalabilidad individuales para cada microservicio.
-
 
 ### 1.1 Aspectos cumplidos de la actividad
 
-Despliegue funcional de la aplicación monolítica BookStore.
-
-Uso de Docker y Docker Compose para contenerización.
-
-Configuración de una VM en AWS (EC2).
-
-Instalación de NGINX como proxy inverso.
-
-Configuración de dominio propio y certificación SSL vía Let's Encrypt.
-
-Acceso a la aplicación vía HTTPS desde el navegador usando el dominio configurado.
+✔ Despliegue funcional de la app monolítica  
+✔ Docker y Docker Compose configurados  
+✔ NGINX como proxy inverso  
+✔ Certificado SSL con Let's Encrypt  
+✔ Dominio propio: https://bookstoredemo.shop  
+✔ ALB (Application Load Balancer) con instancias *healthy*  
+✔ NFS configurado correctamente  
+✔ Infraestructura montada en AWS  
 
 ### Aspectos NO cumplidos
 
-Ninguno - llenar basado en la implementación.
+Objetivo 3 - microservicios y SWARM
 
 ### Diseño de alto nivel
 
-Arquitectura de aplicación monolítica en Objetivo 1.
+ Arquitectura monolítica (objetivo 1)
+- Arquitectura escalada: múltiples EC2 + ELB + NFS + RDS (objetivo 2)
+- Microservicios y Kubernetes (objetivo 3, pendiente)
+- Patrón de despliegue clásico: servidor + BD
+- Buenas prácticas: uso de .env, Docker Compose, SSL/TLS, separación de lógica por controladores
+![image](https://github.com/user-attachments/assets/8a1e674e-049b-4f74-8683-f2962db4ab66)
 
-Arquitectura escalada con múltiples VMs, ELB, RDS, y NFS en Objetivo 2.
-
-Arquitectura basada en microservicios desplegada en Kubernetes en Objetivo 3.
-
-Patrón de despliegue clásico: servidor + base de datos.
-
-Mejores prácticas: uso de Docker Compose, separación de servicios, configuración de variables de entorno.
 
 ### 3. Ambiente de desarrollo
-Lenguaje: Python 3.x
-
-Framework: Flask
-
-Base de datos: MySQL
-
-Librerías:
-
-Flask 2.x
-
-Flask-Login
-
-SQLAlchemy
-
-docker-compose
+- Lenguaje: Python 3.x
+- Framework: Flask
+- Docker: v24.0+
+- Docker Compose: v2.36.0
+- Certbot: 2.9.0
+- Servidor: Ubuntu 24.04 (EC2)
+- NGINX: 1.24.0
 
 ## Compilación y ejecución
+
+```
+git clone https://github.com/usuario/bookstore-monolith.git
+cd bookstore-monolith
+sudo docker-compose up -d --build
+```
 
 # Clonar repositorio
 https://github.com/tuusuario/bookstore-monolith.git
@@ -92,29 +73,83 @@ docker-compose up --build -d
 
 # Sitio Web desplegado
 
-👉 https://bookstoredemo.shop
-App Flask monolítica	✅ Corriendo
-Docker + Docker Compose	✅ OK
-MySQL en contenedor	✅ OK
-Proxy inverso NGINX	✅ OK
-Dominio público (.shop)	✅ OK
-HTTPS con Let's Encrypt	✅ Válido
-Renovación automática SSL	✅ OK
+- Dominio: https://bookstoredemo.shop
+- Puerto expuesto: 443
+- NFS Mount: `/mnt/nfs`
+- BD: MySQL en RDS (us-east-1)
+- NGINX como proxy inverso a `localhost:5000`
+- Certificados en: `/etc/letsencrypt/live/bookstoredemo.shop/`
+- Infraestructura: AWS EC2 + ALB + NFS + RDS
+- IP NFS Server: 54.84.35.254
+- IP pública Bookstore2: 54.205.132.233
+- Balanceador de carga: `bookstore-alb` (HTTPS:443)
+
+![image](https://github.com/user-attachments/assets/9603591c-db48-4939-b948-dbf70e14c41c)
+
+
+![image](https://github.com/user-attachments/assets/c8fce644-3ecc-412d-ad68-9c192108fbdf)
+
+**Estructura de carpetas:**
+├── Dockerfile
+├── README.md
+├── app.py
+├── awscliv2.zip
+├── config.py
+├── controllers
+│   ├── _pycache_
+│   │   ├── auth_controller.cpython-312.pyc
+│   │   ├── book_controller.cpython-312.pyc
+│   │   ├── delivery_controller.cpython-312.pyc
+│   │   ├── payment_controller.cpython-312.pyc
+│   │   └── purchase_controller.cpython-312.pyc
+│   ├── admin_controller.py
+│   ├── auth_controller.py
+│   ├── book_controller.py
+│   ├── delivery_controller.py
+│   ├── payment_controller.py
+│   └── purchase_controller.py
+├── docker-compose.yml
+├── extensions.py
+├── models
+│   ├── book.py
+│   ├── delivery.py
+│   ├── delivery_assignment.py
+│   ├── payment.py
+│   ├── purchase.py
+│   └── user.py
+├── requirements.txt
+└── templates
+    ├── add_book.html
+    ├── base.html
+    ├── catalog.html
+    ├── delivery_options.html
+    ├── edit_book.html
+    ├── home.html
+    ├── list_users.html
+    ├── login.html
+    ├── my_books.html
+    ├── payment.html
+    └── register.html
 
 ### 5. Otra información relevante
 
-Este despliegue forma parte del Proyecto 2 del curso ST0263. Incluye los tres objetivos descritos en la guía del proyecto.
+Este despliegue forma parte del Proyecto 2 del curso ST0263. Incluye 2/3 objetivos mandatorios.
 
 
 ![image](https://github.com/user-attachments/assets/a83cdafd-3a51-46ac-b7f2-f2202567eae2)
 
-Referencias
+ - NFS permite compartir archivos entre instancias
+- La app responde correctamente a `curl -Ik https://localhost`
+- Certificado verificado con `openssl s_client`
 
-https://docs.docker.com/
+![image](https://github.com/user-attachments/assets/4d8ff9b5-39c9-45c3-b249-cfd5c4d73f7b)
+![Uploading image.png…]()
 
-https://certbot.eff.org/
 
-https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-22-04
-
-https://github.com/st0263eafit/st0263-251/blob/main/proyecto2/BookStore.zip
+Referencias:
+------------
+- https://docs.docker.com
+- https://flask.palletsprojects.com
+- https://certbot.eff.org
+- https://docs.aws.amazon.com/elasticloadbalancing/
 
