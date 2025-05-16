@@ -7,6 +7,7 @@
   - Sebastián Cano Rincón - scanor2@eafit.edu.co
   - Maria Camila Morales - mcmorales@eafit.edu.co
 - **Profesor:** Alvaro Enrique Ospina Sanjuan - aeospinas@eafit.brightspace.com
+- **Video:** https://teams.microsoft.com/l/meetingrecap?driveId=b%216XUses7wc0SIPDAG2T5E3A6yrBq8YolBgI-SkQgnz9EJlUNwCvTLR6z9wXktU5Fj&driveItemId=01TFOAYXUEM7JJKWCNPVFZ6H5CPRF7MH5F&sitePath=https%3A%2F%2Feafit-my.sharepoint.com%2F%3Av%3A%2Fg%2Fpersonal%2Fmarangog3_eafit_edu_co%2FEYRn0pVYTX1Lnx-ifEv2H6UB2aWCxZoSe1jHA-NAyGiq7w&fileUrl=https%3A%2F%2Feafit-my.sharepoint.com%2Fpersonal%2Fmarangog3_eafit_edu_co%2FDocuments%2FGrabaciones%2FLlamada%2520con%2520Maria%2520y%25201%2520m%25C3%25A1s-20250515_213858-Grabaci%25C3%25B3n%2520de%2520la%2520reuni%25C3%25B3n.mp4%3Fweb%3D1&threadId=19%3A579ebe897008492aba5d4ab159f32ac9%40thread.v2&callId=614da91c-bb39-45b8-bdff-bc0fcc98cb33&threadType=GroupChat&meetingType=Unknown&subType=RecapSharingLink_RecapCore
 
 ## BookStore Monolítica - Objetivo 1
 ### 1. Breve descripción de la actividad
